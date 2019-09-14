@@ -6,7 +6,7 @@ CREATE TABLE  reviews (
     id SERIAL PRIMARY KEY,
     product_id INTEGER,
     rating INTEGER,
-    date_submitted VARCHAR(30),
+    date_submitted VARCHAR(100),
     summary VARCHAR(1000),
     body VARCHAR(1000),
     recommend BOOLEAN,
@@ -25,18 +25,17 @@ CREATE TABLE photos (
 
 CREATE TABLE characteristics (
     id SERIAL PRIMARY KEY,
-    product_id INTEGER REFERENCES reviews(id),
     characteristic VARCHAR(20)
 );
 
 CREATE TABLE characteristics_reviews (
     id SERIAL PRIMARY KEY,
-    characteristic_id INTEGER REFERENCES characteristics(id),
     review_id INTEGER REFERENCES reviews(id),
+    characteristic_id INTEGER REFERENCES characteristics(id),
     rating INTEGER
 );
 
-\COPY reviews FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/reviews.csv' DELIMITER ',' CSV HEADER;
-\COPY photos FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/reviews_photos.csv' DELIMITER ',' CSV HEADER;
-\COPY characteristics FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/characteristics.csv' DELIMITER ',' CSV HEADER;
-\COPY characteristics_reviews FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/characteristic_reviews.csv' DELIMITER ',' CSV HEADER;
+\COPY reviews FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/reviews_seed.csv' DELIMITER ',' CSV HEADER;
+\COPY photos FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/photos_seed.csv' DELIMITER ',' CSV HEADER;
+\COPY characteristics FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/characteristics_seed.csv' DELIMITER ',' CSV HEADER;
+\COPY characteristics_reviews FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/characteristics_review_seed.csv' DELIMITER ',' CSV HEADER;

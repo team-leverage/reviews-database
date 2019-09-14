@@ -1,6 +1,6 @@
 const fs = require('fs');
 const faker = require('faker');
-const file = fs.createWriteStream('./photos_seed');
+const file = fs.createWriteStream('./data/photos_seed');
 
 const headers = ['id', 'review_id', 'link']
 

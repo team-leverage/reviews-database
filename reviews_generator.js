@@ -1,6 +1,6 @@
 const fs = require('fs');
 const faker = require('faker');
-const file = fs.createWriteStream('./reviews_seed');
+const file = fs.createWriteStream('./data/reviews_seed');
 
 const headers = ['id', 'product_id', 'rating', 'date_submitted', 'summary', 'body', 'recommend', 'reported', 'reviewer_name', 'reviewer_email', 'response', 'helpfulness']
 
@@ -11,8 +11,6 @@ for (let i=0; i < headers.length; i++) {
         file.write(headers[i] + ',')
     }
 }
-
-// number to use 6660000
 
 baconWords = ['Spicy', 'jalapeno', 'bacon', 'ipsum', 'dolor', 'biltong', 'chuck', 'landjaeger', 'cow', 'bacon',
                 'drumstick', 'pastrami', 'ball', 'tip', 'short', 'loin', 'brisket', 'prosciutto', 
