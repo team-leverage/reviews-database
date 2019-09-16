@@ -24,11 +24,35 @@ const getReviewList = (request, response) => {
     const reviews = {}
     results.rows.forEach(row => {
       if (!reviews[row.id]) {
-        reviews[row.id] = row
+        reviews[row.id] = {
+          review_id: row.id,
+          rating: row.rating,
+          summary: row.summary,
+          response: row.response,
+          body: row.body, 
+          date: row.date,
+          reviewer_name: row.reviewer_name,
+          helpfulness: row.helpfulness,
+          photos: []
+        }
+      }
+      if (row.photo_id) {
+        reviews[row.id].photos.push(
+          {
+            url: row.link,
+            id: row.photo_id,
+          }
+        )
       }
     })
-    console.log(reviews)
-    response.status(200).json(results.rows)})
+    console.log(Object.keys(reviews).length)
+    const output = {
+      product: productId,
+      page: 0,
+      count: Object.keys(reviews).length,
+      results: Object.values(reviews)
+    }
+    response.status(200).json(output)})
 }
 
 module.exports = {
