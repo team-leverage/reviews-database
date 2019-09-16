@@ -32,7 +32,7 @@ CREATE TABLE characteristics_reviews (
     id SERIAL PRIMARY KEY,
     review_id INTEGER REFERENCES reviews(id),
     characteristic_id INTEGER REFERENCES characteristics(id),
-    rating INTEGER
+    characteristic_rating INTEGER
 );
 
 \COPY reviews FROM '/Users/stephen/hrgbld/sdc/reviews-database/data/reviews_seed.csv' DELIMITER ',' CSV HEADER;
