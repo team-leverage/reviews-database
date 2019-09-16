@@ -14,4 +14,6 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/characteristics', db.getCharacteristics)
 
+app.get('/reviews/:productId/list', db.getReviewList)
+
 app.listen(port, () => console.log(`listening on ${port}`))

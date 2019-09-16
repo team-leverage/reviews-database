@@ -18,7 +18,7 @@ CREATE TABLE  reviews (
     );
 
 CREATE TABLE photos (
-    id SERIAL PRIMARY KEY,
+    photo_id SERIAL PRIMARY KEY,
     review_id INTEGER REFERENCES reviews(id),
     link VARCHAR(300)
 );

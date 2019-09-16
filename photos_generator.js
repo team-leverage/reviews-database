@@ -20,7 +20,7 @@ for (var j = 0; j < 3500000; j++) {
     let chance = Math.floor(Math.random() * 3)
     if (chance === 1) {
         let photoEntry = ''
-        let photoNumber = Math.floor(Math.random() * 5) + 1
+        let photoNumber = Math.floor(Math.random() * 17) + 1
         for (var k = 0; k < photoNumber; k++) {
             photoEntry += (counter + ',' + j.toString() + ',' + faker.image.imageUrl() + '\n')
             counter+=1
