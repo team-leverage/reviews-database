@@ -15,4 +15,7 @@ app.use(
 app.get('/reviews/:productId/list', db.getReviewList);
 app.get('/reviews/:productId/meta', db.getMetaData);
 app.put('/reviews/helpful/:review_id', db.markAsHelpful);
+app.put('/reviews/report/:review_id', db.markAsHelpful);
+app.post('/reviews/:product_id', db.postReview);
+
 app.listen(port, () => console.log(`listening on ${port}`));

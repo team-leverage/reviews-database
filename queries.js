@@ -111,8 +111,54 @@ const markAsHelpful = (request, response) => {
   });
 };
 
+const markAsReported = (request, response) => {
+  const { review_id } = request.params;
+  pool.query(`UPDATE reviews
+                SET reported = true
+                WHERE reviews.id = ${review_id}`,
+  (error) => {
+    if (error) {
+      throw error;
+    }
+    response.sendStatus(201);
+  });
+};
+
+const postReview = (req, response) => {
+  const { product_id } = req.params;
+  const date = new Date().toString();
+  let reviewId;
+  pool.query(`INSERT INTO reviews
+              (id, product_id, rating, date_submitted, summary, body, recommend, reported, reviewer_name, reviewer_email, response, helpfulness) 
+              VALUES 
+              (default, ${product_id}, ${req.body.rating}, '${date}', '${req.body.summary}', '${req.body.body}', '${req.body.recommend}', false, '${req.body.name}', '${req.body.email}', null, 0)
+              RETURNING id;`)
+    .then((returned) => {
+      const { id } = returned.rows[0];
+      reviewId = id;
+      Object.entries(JSON.parse(req.body.characteristics)).forEach((entry) => {
+        pool.query(`INSERT INTO characteristics_reviews
+                  (id, review_id, characteristic_id, characteristic_rating)
+                  VALUES
+                  (default, ${id}, ${entry[0]}, ${entry[1]})`);
+      });
+    })
+    .then(() => {
+      JSON.parse(req.body.photos).forEach((url) => {
+        console.log(reviewId)
+        pool.query(`INSERT INTO photos 
+                    (photo_id, review_id, link)
+                    VALUES 
+                    (default, ${reviewId}, '${url}')`);
+      });
+    })
+    .then(() => response.sendStatus(202));
+};
+
 module.exports = {
   getReviewList,
   getMetaData,
   markAsHelpful,
+  markAsReported,
+  postReview,
 };
