@@ -13,7 +13,7 @@ const getReviewsForProduct = (request, response) => {
             summary: row.summary,
             response: row.response,
             body: row.body,
-            date: row.date,
+            date: row.date_submitted,
             reviewer_name: row.reviewer_name,
             helpfulness: row.helpfulness,
             photos: [],
@@ -27,6 +27,7 @@ const getReviewsForProduct = (request, response) => {
             },
           );
         }
+        reviews[row.id].photos = reviews[row.id].photos.slice(0, 5);
       });
       const output = {
         product: productId,
@@ -62,13 +63,13 @@ const getMetaData = (request, response) => {
         if (!metaData.characteristics[row.characteristic]) {
           metaData.characteristics[row.characteristic] = {
             id: row.id,
-            rating: row.characteristic_rating,
+            value: row.characteristic_rating,
             ratingCount: 1,
           };
         } else {
           metaData.characteristics[row.characteristic].ratingCount += 1;
-          metaData.characteristics[row.characteristic].rating = Math.floor(
-            (metaData.characteristics[row.characteristic].rating + row.characteristic_rating)
+          metaData.characteristics[row.characteristic].value = Math.floor(
+            (metaData.characteristics[row.characteristic].value + row.characteristic_rating)
             / metaData.characteristics[row.characteristic].ratingCount,
           );
         }
@@ -78,12 +79,14 @@ const getMetaData = (request, response) => {
 };
 
 const markAsHelpful = (request, response) => {
+  console.log('marked as helpful')
   const { review_id } = request.params;
   return db.markAsHelpful(review_id)
     .then(() => response.sendStatus(201));
 };
 
 const markAsReported = (request, response) => {
+  console.log('reported')
   const { review_id } = request.params;
   return db.markAsReported(review_id)
     .then(() => response.sendStatus(201));
