@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
-const db = require('./queries');
+const controller = require('./controller');
 
 app.use(bodyParser.json());
 app.use(
@@ -12,10 +12,16 @@ app.use(
   }),
 );
 
-app.get('/reviews/:productId/list', db.getReviewList);
-app.get('/reviews/:productId/meta', db.getMetaData);
-app.put('/reviews/helpful/:review_id', db.markAsHelpful);
-app.put('/reviews/report/:review_id', db.markAsHelpful);
-app.post('/reviews/:product_id', db.postReview);
+// ROUTES
+app.get('/reviews/:productId/list', controller.getReviewsForProduct);
+
+app.get('/reviews/:productId/meta', controller.getMetaData);
+
+app.put('/reviews/helpful/:review_id', controller.markAsHelpful);
+
+app.put('/reviews/report/:review_id', controller.markAsHelpful);
+
+app.post('/reviews/:product_id', controller.postReview);
+
 
 app.listen(port, () => console.log(`listening on ${port}`));
