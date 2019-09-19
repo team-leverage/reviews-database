@@ -2,7 +2,7 @@ CREATE DATABASE reviews;
 
 \c reviews;
 
-CREATE TABLE  reviews (
+CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     product_id INTEGER,
     rating INTEGER,

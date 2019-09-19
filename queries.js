@@ -8,7 +8,10 @@ const pool = new Pool({
 
 const getReviewList = (request, response) => {
   const { productId } = request.params;
-  pool.query(`SELECT * FROM reviews LEFT JOIN photos ON photos.review_id = reviews.id WHERE reviews.product_id = ${productId}`, (error, results) => {
+  pool.query(`SELECT * FROM reviews 
+              LEFT JOIN photos 
+              ON photos.review_id = reviews.id 
+              WHERE reviews.product_id = ${productId}`, (error, results) => {
     if (error) {
       throw error;
     }
@@ -88,7 +91,7 @@ const getMetaData = (request, response) => {
         };
       } else {
         metaData.characteristics[row.characteristic].ratingCount += 1;
-        metaData.characteristics[row.characteristic].rating = Math.abs(
+        metaData.characteristics[row.characteristic].rating = Math.floor(
           (metaData.characteristics[row.characteristic].rating + row.characteristic_rating)
           / metaData.characteristics[row.characteristic].ratingCount,
         );
@@ -145,7 +148,6 @@ const postReview = (req, response) => {
     })
     .then(() => {
       JSON.parse(req.body.photos).forEach((url) => {
-        console.log(reviewId)
         pool.query(`INSERT INTO photos 
                     (photo_id, review_id, link)
                     VALUES 
