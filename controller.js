@@ -1,4 +1,4 @@
-const db = require('./queries');
+const db = require('./model');
 
 const getReviewsForProduct = (request, response) => {
   const { productId } = request.params;
