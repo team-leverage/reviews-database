@@ -1,11 +1,17 @@
 const Pool = require('pg-pool');
+const url = require('url');
 
-const pool = new Pool({
-  user: 'stephen',
-	password: 'noodle',
-  database: 'postgres',
-  port: 5432,
-});
+const db = url.parse(process.env.DATABASE_URL);
+
+const config = {
+  user: 'postgres',
+  password: 'noodle',
+  port: 3000,
+  database: db,
+  ssl: true,
+};
+
+const pool = new Pool(config);
 
 const getReviewList = (productId) => pool.query(`SELECT
     * FROM reviews 
