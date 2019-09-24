@@ -28,9 +28,7 @@ app.put('/reviews/report/:review_id', controller.markAsReported);
 
 app.post('/reviews/:product_id', controller.postReview);
 
-app.get('/reviews', (req, res) => {
-  res.sendStatus(204);
-});
+app.get('/reviews/test', controller.test);
 
 
 app.listen(port, () => console.log(`listening on ${port}`));

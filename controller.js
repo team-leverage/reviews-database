@@ -98,10 +98,15 @@ const postReview = (request, response) => {
     .then(() => response.sendStatus(202));
 };
 
+const test = (request, response) => {
+  response.sendStatus(204)
+}
+
 module.exports = {
   getReviewsForProduct,
   getMetaData,
   markAsHelpful,
   markAsReported,
   postReview,
+  test,
 };
