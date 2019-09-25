@@ -1,14 +1,13 @@
 const Pool = require('pg-pool');
-const url = require('url');
 
-const db = url.parse(process.env.DATABASE_URL);
+const db = process.env.DATABASE_URL;
 
 const config = {
   user: 'postgres',
   password: 'noodle',
-  port: 3000,
-  database: db,
-  ssl: true,
+  database: 'postgres',
+  port: 5432,
+  host: 'ec2-18-191-12-22.us-east-2.compute.amazonaws.com'
 };
 
 const pool = new Pool(config);
