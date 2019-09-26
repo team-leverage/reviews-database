@@ -16,6 +16,8 @@ app.use(
   }),
 );
 
+app.use(express.static('public'));
+
 // ROUTES
 app.get('/reviews/:productId/list', controller.getReviewsForProduct);
 
