@@ -51,7 +51,7 @@ const getReviewsForProduct = (request, response) => {
           count: Object.keys(reviews).length,
           results: Object.values(reviews),
         };
-        client.setex(metaRedisKey, 3600, JSON.stringify(metaData));
+        client.setex(metaRedisKey, 3600, JSON.stringify(output));
         response.status(200).json(output);
       });
   });

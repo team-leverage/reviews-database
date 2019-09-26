@@ -10,5 +10,5 @@ scenarios:
   - flow:
       - loop:
           - get:
-              url: "/reviews/{{ $loopElement }}/meta"
+              url: "/reviews/{{ $loopElement }}/list"
         over: productIds
