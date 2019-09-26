@@ -12,9 +12,9 @@ client.on('error', (err) => {
 const getReviewsForProduct = (request, response) => {
   const { productId } = request.params;
 
-  const metaRedisKey = `reviews:list:${productId}`;
+  const listRedisKey = `reviews:list:${productId}`;
 
-  return client.get(metaRedisKey, (err, data) => {
+  return client.get(listRedisKey, (err, data) => {
     if (data) {
       return response.json({ source: 'cache', data: JSON.parse(data) });
     }
@@ -51,7 +51,7 @@ const getReviewsForProduct = (request, response) => {
           count: Object.keys(reviews).length,
           results: Object.values(reviews),
         };
-        client.setex(metaRedisKey, 3600, JSON.stringify(output));
+        client.setex(listRedisKey, 3600, JSON.stringify(output));
         response.status(200).json(output);
       });
   });
