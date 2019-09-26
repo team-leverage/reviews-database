@@ -1,4 +1,13 @@
+const redis = require('redis');
 const db = require('./model');
+
+// create and connect redis client to local instance.
+const client = redis.createClient(6379);
+
+// Print redis errors to the console
+client.on('error', (err) => {
+  console.log(`Error ${err}`);
+});
 
 const getReviewsForProduct = (request, response) => {
   const { productId } = request.params;
@@ -41,52 +50,69 @@ const getReviewsForProduct = (request, response) => {
 
 const getMetaData = (request, response) => {
   const { productId } = request.params;
-  return db.getMetaData(productId)
-    .then((results) => {
-      const metaData = {
-        productId,
-        ratings: {},
-        recommended: {
-          0: 0,
-          1: 0,
-        },
-        characteristics: {},
-      };
-      results.rows.forEach((row) => {
-        if (!metaData.ratings[row.rating]) {
-          metaData.ratings[row.rating] = 1;
-        } else {
-          metaData.ratings[row.rating] += 1;
-        }
-        if (row.recommend) { metaData.recommended[0] += 1; }
-        if (!row.recommend) { metaData.recommended[1] += 1; }
-        if (!metaData.characteristics[row.characteristic]) {
-          metaData.characteristics[row.characteristic] = {
-            id: row.id,
-            value: row.characteristic_rating,
-            ratingCount: 1,
-          };
-        } else {
-          metaData.characteristics[row.characteristic].ratingCount += 1;
-          metaData.characteristics[row.characteristic].value = Math.floor(
-            (metaData.characteristics[row.characteristic].value + row.characteristic_rating)
-            / metaData.characteristics[row.characteristic].ratingCount,
-          );
-        }
+  // query redis with something
+  // check if redis has a result or if its undefined
+
+  // key to store results in Redis store
+  const metaRedisKey = `reviews:meta:${productId}`;
+
+  // Try fetching the result from Redis first in case we have it cached
+  return client.get(metaRedisKey, (err, data) => {
+    // If that key exists in Redis store
+    if (data) {
+      return response.json({ source: 'cache', data: JSON.parse(data) });
+    }
+    return db.getMetaData(productId)
+      .then((results) => {
+        const metaData = {
+          productId,
+          ratings: {},
+          recommended: {
+            0: 0,
+            1: 0,
+          },
+          characteristics: {},
+        };
+        results.rows.forEach((row) => {
+          if (!metaData.ratings[row.rating]) {
+            metaData.ratings[row.rating] = 1;
+          } else {
+            metaData.ratings[row.rating] += 1;
+          }
+          if (row.recommend) { metaData.recommended[0] += 1; }
+          if (!row.recommend) { metaData.recommended[1] += 1; }
+          if (!metaData.characteristics[row.characteristic]) {
+            metaData.characteristics[row.characteristic] = {
+              id: row.id,
+              value: row.characteristic_rating,
+              ratingCount: 1,
+            };
+          } else {
+            metaData.characteristics[row.characteristic].ratingCount += 1;
+            metaData.characteristics[row.characteristic].value = Math.floor(
+              (metaData.characteristics[row.characteristic].value + row.characteristic_rating)
+                      / metaData.characteristics[row.characteristic].ratingCount,
+            );
+          }
+        });
+        // save to redis
+        client.setex(metaRedisKey, 3600, JSON.stringify(metaData));
+        response.status(202).json(metaData);
       });
-      response.status(202).json(metaData);
-    });
+
+  // if it isn't return the result
+  });
 };
 
 const markAsHelpful = (request, response) => {
-  console.log('marked as helpful')
+  console.log('marked as helpful');
   const { review_id } = request.params;
   return db.markAsHelpful(review_id)
     .then(() => response.sendStatus(201));
 };
 
 const markAsReported = (request, response) => {
-  console.log('reported')
+  console.log('reported');
   const { review_id } = request.params;
   return db.markAsReported(review_id)
     .then(() => response.sendStatus(201));
@@ -99,8 +125,8 @@ const postReview = (request, response) => {
 };
 
 const test = (request, response) => {
-  response.sendStatus(204)
-}
+  response.sendStatus(204);
+};
 
 module.exports = {
   getReviewsForProduct,
