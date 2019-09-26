@@ -60,6 +60,7 @@ const getMetaData = (request, response) => {
   return client.get(metaRedisKey, (err, data) => {
     // If that key exists in Redis store
     if (data) {
+       console.log('redis found something useful');
       return response.json({ source: 'cache', data: JSON.parse(data) });
     }
     return db.getMetaData(productId)
