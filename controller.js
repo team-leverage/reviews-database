@@ -11,56 +11,60 @@ client.on('error', (err) => {
 
 const getReviewsForProduct = (request, response) => {
   const { productId } = request.params;
-  return db.getReviewList(productId)
-    .then((results) => {
-      const reviews = {};
-      results.rows.forEach((row) => {
-        if (!reviews[row.id]) {
-          reviews[row.id] = {
-            review_id: row.id,
-            rating: row.rating,
-            summary: row.summary,
-            response: row.response,
-            body: row.body,
-            date: row.date_submitted,
-            reviewer_name: row.reviewer_name,
-            helpfulness: row.helpfulness,
-            photos: [],
-          };
-        }
-        if (row.photo_id) {
-          reviews[row.id].photos.push(
-            {
-              url: row.link,
-              id: row.photo_id,
-            },
-          );
-        }
-        reviews[row.id].photos = reviews[row.id].photos.slice(0, 5);
+
+  const metaRedisKey = `reviews:list:${productId}`;
+
+  return client.get(metaRedisKey, (err, data) => {
+    if (data) {
+      return response.json({ source: 'cache', data: JSON.parse(data) });
+    }
+    return db.getReviewList(productId)
+      .then((results) => {
+        const reviews = {};
+        results.rows.forEach((row) => {
+          if (!reviews[row.id]) {
+            reviews[row.id] = {
+              review_id: row.id,
+              rating: row.rating,
+              summary: row.summary,
+              response: row.response,
+              body: row.body,
+              date: row.date_submitted,
+              reviewer_name: row.reviewer_name,
+              helpfulness: row.helpfulness,
+              photos: [],
+            };
+          }
+          if (row.photo_id) {
+            reviews[row.id].photos.push(
+              {
+                url: row.link,
+                id: row.photo_id,
+              },
+            );
+          }
+          reviews[row.id].photos = reviews[row.id].photos.slice(0, 5);
+        });
+        const output = {
+          product: productId,
+          page: 0,
+          count: Object.keys(reviews).length,
+          results: Object.values(reviews),
+        };
+        client.setex(metaRedisKey, 3600, JSON.stringify(metaData));
+        response.status(200).json(output);
       });
-      const output = {
-        product: productId,
-        page: 0,
-        count: Object.keys(reviews).length,
-        results: Object.values(reviews),
-      };
-      response.status(200).json(output);
-    });
+  });
 };
 
 const getMetaData = (request, response) => {
   const { productId } = request.params;
-  // query redis with something
-  // check if redis has a result or if its undefined
 
-  // key to store results in Redis store
   const metaRedisKey = `reviews:meta:${productId}`;
 
-  // Try fetching the result from Redis first in case we have it cached
   return client.get(metaRedisKey, (err, data) => {
-    // If that key exists in Redis store
     if (data) {
-       console.log('redis found something useful');
+      console.log('redis found something useful');
       return response.json({ source: 'cache', data: JSON.parse(data) });
     }
     return db.getMetaData(productId)
