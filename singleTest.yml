@@ -1,0 +1,11 @@
+config:
+  target: 'http://ec2-18-220-221-154.us-east-2.compute.amazonaws.com:3000'
+  phases:
+    - duration: 60
+      arrivalRate: 100
+  defaults:
+    headers:
+scenarios:
+  - flow:
+    - get:
+        url: "/reviews/300/meta"
