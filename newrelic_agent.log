@@ -656,3 +656,81 @@
 {"v":0,"level":30,"name":"newrelic","hostname":"ip-172-31-23-224","pid":12037,"time":"2019-09-24T22:50:32.654Z","msg":"Harvest finished."}
 {"v":0,"level":30,"name":"newrelic","hostname":"ip-172-31-23-224","pid":12037,"time":"2019-09-24T22:51:32.601Z","msg":"Harvest started."}
 {"v":0,"level":30,"name":"newrelic","hostname":"ip-172-31-23-224","pid":12037,"time":"2019-09-24T22:51:32.654Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:35:59.715Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:35:59.853Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:36:00.043Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:36:00.043Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:36:01.968Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:36:01.969Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BXmG7ui11VE6ACXkHxZkSbddisT4AAgBAAAnIQEAAB5aAgQWWxlpAwAGNS4xMS4wABpTdGVwaGVucy1NYWNCb29rLVByby5sb2NhbAASZ3JlZW5maWVsZF9yZXZpZXdz.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:36:01.969Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2483231/applications/375069033","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:36:01.982Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:36:02.988Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7770,"time":"2019-09-25T01:36:03.102Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7813,"time":"2019-09-25T01:36:51.338Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7813,"time":"2019-09-25T01:36:51.473Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7813,"time":"2019-09-25T01:36:51.650Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7813,"time":"2019-09-25T01:36:51.650Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7813,"time":"2019-09-25T01:36:53.275Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7813,"time":"2019-09-25T01:36:53.275Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID Bb3LrXXC8LbQACXkHxZkSbddisT4AAgBAAAnIQEAAB6FAgQWWxlpAwAGNS4xMS4wABpTdGVwaGVucy1NYWNCb29rLVByby5sb2NhbAASZ3JlZW5maWVsZF9yZXZpZXdz.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7813,"time":"2019-09-25T01:36:53.275Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2483231/applications/375069033","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7813,"time":"2019-09-25T01:36:53.290Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:17.054Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:17.191Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:17.373Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:17.373Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:19.081Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:19.082Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID Be874tbIF6goACXkHxZkSbddisU0AAgBAAAnIQEAAB6jAgQWWxlpAwAGNS4xMS4wABpTdGVwaGVucy1NYWNCb29rLVByby5sb2NhbAASZ3JlZW5maWVsZF9yZXZpZXdz.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:19.082Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2483231/applications/375069033","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:19.095Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:20.098Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7843,"time":"2019-09-25T01:37:20.209Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7879,"time":"2019-09-25T01:38:02.190Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7879,"time":"2019-09-25T01:38:02.331Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7879,"time":"2019-09-25T01:38:02.512Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":7879,"time":"2019-09-25T01:38:02.512Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17095,"time":"2019-09-25T01:39:31.308Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17095,"time":"2019-09-25T01:39:31.452Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17095,"time":"2019-09-25T01:39:31.625Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17095,"time":"2019-09-25T01:39:31.625Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17095,"time":"2019-09-25T01:39:33.326Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17095,"time":"2019-09-25T01:39:33.327Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID Ba2lCnS-UR1EACXkHxZkSbddisWsAAgBAAAnIQEAAELHAgQWWxlpAwAGNS4xMS4wABpTdGVwaGVucy1NYWNCb29rLVByby5sb2NhbAASZ3JlZW5maWVsZF9yZXZpZXdz.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17095,"time":"2019-09-25T01:39:33.327Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2483231/applications/375069033","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17095,"time":"2019-09-25T01:39:33.344Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:19.298Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:19.438Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:19.626Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:19.626Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:21.484Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:21.485Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BaMo9CDyN4qwACXkHxZkSbddisXoAAgBAAAnIQEAAELzAgQWWxlpAwAGNS4xMS4wABpTdGVwaGVucy1NYWNCb29rLVByby5sb2NhbAASZ3JlZW5maWVsZF9yZXZpZXdz.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:21.485Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2483231/applications/375069033","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:21.499Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:22.505Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17139,"time":"2019-09-25T01:40:22.711Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17798,"time":"2019-09-25T01:43:31.363Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17798,"time":"2019-09-25T01:43:31.503Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17798,"time":"2019-09-25T01:43:31.672Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17798,"time":"2019-09-25T01:43:31.672Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17798,"time":"2019-09-25T01:43:33.348Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17798,"time":"2019-09-25T01:43:33.348Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BXwLf5v4FXn5ACXkHxZkSbddisacAAgBAAAnIQEAAEWGAgQWWxlpAwAGNS4xMS4wABpTdGVwaGVucy1NYWNCb29rLVByby5sb2NhbAASZ3JlZW5maWVsZF9yZXZpZXdz.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17798,"time":"2019-09-25T01:43:33.349Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2483231/applications/375069033","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17798,"time":"2019-09-25T01:43:33.364Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:23.004Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:23.147Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:23.320Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:23.320Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:24.939Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:24.940Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BYUWqELy1FVDACXkHxZkSbddisbYAAgBAAAnIQEAAEWsAgQWWxlpAwAGNS4xMS4wABpTdGVwaGVucy1NYWNCb29rLVByby5sb2NhbAASZ3JlZW5maWVsZF9yZXZpZXdz.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:24.940Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2483231/applications/375069033","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:24.952Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:25.953Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17836,"time":"2019-09-25T01:44:26.069Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:09.387Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:09.528Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:09.709Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:09.709Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:11.284Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:11.284Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BSfZ8PThKB7eACXkHxZkSbddisdQAAgBAAAnIQEAAEXqAgQWWxlpAwAGNS4xMS4wABpTdGVwaGVucy1NYWNCb29rLVByby5sb2NhbAASZ3JlZW5maWVsZF9yZXZpZXdz.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:11.284Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2483231/applications/375069033","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:11.295Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:12.299Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stephens-MacBook-Pro.local","pid":17898,"time":"2019-09-25T01:46:12.407Z","msg":"Harvest finished."}
