@@ -1,6 +1,7 @@
 require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -16,7 +17,7 @@ app.use(
   }),
 );
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTES
 app.get('/reviews/:productId/list', controller.getReviewsForProduct);
