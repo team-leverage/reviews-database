@@ -1,25 +1,31 @@
+/* eslint-disable camelcase */
 const redis = require('redis');
 const db = require('./model');
 
 // create and connect redis client to local instance.
 const client = redis.createClient(6379);
 
-// Print redis errors to the console
 client.on('error', (err) => {
   console.log(`Error ${err}`);
 });
 
+// Function to return reviews to the server
 const getReviewsForProduct = (request, response) => {
-  const { productId } = request.params;
 
+  // Get productId from the request and set the redis key for the function
+  const { productId } = request.params;
   const listRedisKey = `reviews:list:${productId}`;
 
+  // Query the redis database for a result at that key
   return client.get(listRedisKey, (err, data) => {
+    // If redis contains an entry for that key return it
     if (data) {
       return response.json({ source: 'cache', data: JSON.parse(data) });
     }
+    // No cache, so ask model to query database for that productId
     return db.getReviewList(productId)
       .then((results) => {
+        // Format the result
         const reviews = {};
         results.rows.forEach((row) => {
           if (!reviews[row.id]) {
@@ -43,6 +49,7 @@ const getReviewsForProduct = (request, response) => {
               },
             );
           }
+          // Trim the photos down to only 5 (because I forgot to do this in the front-end)
           reviews[row.id].photos = reviews[row.id].photos.slice(0, 5);
         });
         const output = {
@@ -51,22 +58,24 @@ const getReviewsForProduct = (request, response) => {
           count: Object.keys(reviews).length,
           results: Object.values(reviews),
         };
+        // Set the redis list key equal to output and save in the redis db
         client.setex(listRedisKey, 3600, JSON.stringify(output));
+        // Return the response to the server
         response.status(200).json(output);
       });
   });
 };
 
 const getMetaData = (request, response) => {
-  const { productId } = request.params;
 
+  const { productId } = request.params;
   const metaRedisKey = `reviews:meta:${productId}`;
 
   return client.get(metaRedisKey, (err, data) => {
     if (data) {
-      console.log('redis found something useful');
       return response.json({ source: 'cache', data: JSON.parse(data) });
     }
+
     return db.getMetaData(productId)
       .then((results) => {
         const metaData = {
@@ -100,24 +109,19 @@ const getMetaData = (request, response) => {
             );
           }
         });
-        // save to redis
         client.setex(metaRedisKey, 3600, JSON.stringify(metaData));
         response.status(202).json(metaData);
       });
-
-  // if it isn't return the result
   });
 };
 
 const markAsHelpful = (request, response) => {
-  console.log('marked as helpful');
   const { review_id } = request.params;
   return db.markAsHelpful(review_id)
     .then(() => response.sendStatus(201));
 };
 
 const markAsReported = (request, response) => {
-  console.log('reported');
   const { review_id } = request.params;
   return db.markAsReported(review_id)
     .then(() => response.sendStatus(201));
@@ -129,15 +133,10 @@ const postReview = (request, response) => {
     .then(() => response.sendStatus(202));
 };
 
-const test = (request, response) => {
-  response.sendStatus(204);
-};
-
 module.exports = {
   getReviewsForProduct,
   getMetaData,
   markAsHelpful,
   markAsReported,
   postReview,
-  test,
 };
