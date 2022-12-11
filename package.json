@@ -32,7 +32,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "fs": "0.0.1-security",
     "newrelic": "^5.11.0",
